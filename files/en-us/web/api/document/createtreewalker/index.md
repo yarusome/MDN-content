@@ -146,6 +146,8 @@ const treeWalker = document.createTreeWalker(
     node.classList.contains("no-escape")
       ? NodeFilter.FILTER_REJECT
       : node.closest(".escape")
+      ? NodeFilter.FILTER_ACCEPT
+      : NodeFilter.FILTER_SKIP
 );
 ```
 

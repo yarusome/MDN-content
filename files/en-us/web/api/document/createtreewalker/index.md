@@ -67,112 +67,12 @@ This example uses `whatToShow` to transform text contents into upper case. Note 
 ```html
 <div id="root">
   This is a text node.
-  <span>And this is a <code>span</code> element.</span>
 <div>
-```
-
-#### JavaScript
-
-```js
-const treeWalker = document.createTreeWalker(
-  document.querySelector("#root"),
-  NodeFilter.SHOW_TEXT
-);
-
-let currentNode;
-while ((currentNode = treeWalker.nextNode())) {
-  currentNode.data = currentNode.data.toUpperCase();
-}
 ```
 
 #### Result
 
 {{EmbedLiveSample("using_whattoshow", "100%", 100)}}
-
-### Using filter
-
-This example uses `filter` to escape text contents. For any `.escape` element, the text contents of all its descendants will be escaped using {{JSXref("encodeURI()")}}, unless a descendant is also a descendant of a `.no-escape` element.
-
-#### HTML
-
-```html
-<div>
-  <div>This is not escaped.
-    <span class="escape">But this is escaped.</span>
-  </div>
-  <div class="escape">This is escaped.</div>
-  <div class="no-escape">This is not escaped.</div>
-</div>
-<hr />
-<div class="escape">
-  <div>This is escaped.
-    <span class="no-escape">But this is not escaped.</span>
-  </div>
-  <div class="no-escape">This is not escaped.</div>
-</div>
-<hr />
-<div class="no-escape">
-  <div>This is not escaped.</div>
-  <div class="escape">This is not escaped.</div>
-</div>
-```
-
-#### CSS
-
-```css hidden
-div {
-  margin: 0.25em 0;
-  padding: 0.25em;
-}
-span {
-  display: inline-block;
-}
-```
-
-```css
-.escape {
-  border: dashed;
-}
-.no-escape {
-  border: solid;
-}
-```
-
-#### JavaScript
-
-```js
-const treeWalker = document.createTreeWalker(
-  document.body,
-  NodeFilter.SHOW_ELEMENT,
-  (node) => node.classList.contains("no-escape") ?
-    NodeFilter.FILTER_REJECT :
-    node.closest(".escape") ?
-    NodeFilter.FILTER_ACCEPT :
-    NodeFilter.FILTER_SKIP
-);
-
-let currentNode;
-while ((currentNode = treeWalker.nextNode())) {
-  const textTreeWalker = document.createTreeWalker(
-    currentNode,
-    NodeFilter.SHOW_ALL,
-    (node) => node.nodeName === "#text" && !/^\s*$/.test(node.data) ?
-       NodeFilter.FILTER_ACCEPT :
-       NodeFilter.FILTER_REJECT
-  );
-
-  let currentTextNode;
-  while ((currentTextNode = textTreeWalker.nextNode())) {
-    currentTextNode.data = encodeURI(
-      currentTextNode.data.replace(/\s+/g, " ")
-    );
-  }
-}
-```
-
-#### Result
-
-{{EmbedLiveSample("using_filter", "100%", 400)}}
 
 ## Specifications
 

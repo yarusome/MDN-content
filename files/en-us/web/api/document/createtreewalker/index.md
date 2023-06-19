@@ -67,7 +67,8 @@ This example uses `whatToShow` to transform text contents into upper case. Note 
 ```html
 <div id="root">
   This is a text node.
-<div>
+  <span>And this is a <code>span</code> element.</span>
+</div>
 ```
 
 #### Result

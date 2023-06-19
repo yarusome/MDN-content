@@ -117,6 +117,27 @@ This example uses `filter` to escape text contents. For any `.escape` element, t
 </div>
 ```
 
+#### CSS
+
+```css hidden
+div {
+  margin: 0.25em 0;
+  padding: 0.25em;
+}
+span {
+  display: inline-block;
+}
+```
+
+```css
+.escape {
+  border: dashed;
+}
+.no-escape {
+  border: solid;
+}
+```
+
 #### Result
 
 {{EmbedLiveSample("using_filter", "100%", 400)}}

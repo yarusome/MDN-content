@@ -162,6 +162,11 @@ while ((currentNode = treeWalker.nextNode())) {
         ? NodeFilter.FILTER_ACCEPT
         : NodeFilter.FILTER_REJECT
   );
+
+  let currentTextNode;
+  while ((currentTextNode = textTreeWalker.nextNode())) {
+    currentTextNode.data = encodeURI(currentTextNode.data.replace(/\s+/g, " ");
+  }
 }
 ```
 

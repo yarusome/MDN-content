@@ -97,23 +97,11 @@ This example uses `filter` to escape text contents. For any `.escape` element, t
 
 ```html
 <div>
-  <div>This is not escaped.
-    <span class="escape">But this is escaped.</span>
+  <div>
+    This is not escaped. <span class="escape">But this is escaped.</span>
   </div>
   <div class="escape">This is escaped.</div>
   <div class="no-escape">This is not escaped.</div>
-</div>
-<hr />
-<div class="escape">
-  <div>This is escaped.
-    <span class="no-escape">But this is not escaped.</span>
-  </div>
-  <div class="no-escape">This is not escaped.</div>
-</div>
-<hr />
-<div class="no-escape">
-  <div>This is not escaped.</div>
-  <div class="escape">This is not escaped.</div>
 </div>
 ```
 

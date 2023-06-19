@@ -138,6 +138,8 @@ span {
 }
 ```
 
+#### JavaScript
+
 ```js
 const treeWalker = document.createTreeWalker(
   document.body,
@@ -149,6 +151,25 @@ const treeWalker = document.createTreeWalker(
       ? NodeFilter.FILTER_ACCEPT
       : NodeFilter.FILTER_SKIP
 );
+
+let currentNode;
+while ((currentNode = treeWalker.nextNode())) {
+  const textTreeWalker = document.createTreeWalker(
+    currentNode,
+    NodeFilter.SHOW_ALL,
+    (node) =>
+      node.nodeName === "#text" && !/^\s*$/.test(node.data)
+        ? NodeFilter.FILTER_ACCEPT
+        : NodeFilter.FILTER_REJECT
+  );
+
+  let currentTextNode;
+  while ((currentTextNode = textTreeWalker.nextNode())) {
+    currentTextNode.data = encodeURI(
+      currentTextNode.data.replace(/\s+/g, " ")
+    );
+  }
+}
 ```
 
 #### Result

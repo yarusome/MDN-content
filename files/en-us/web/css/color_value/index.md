@@ -146,6 +146,15 @@ color(display-p3 0.7 0.5 none)
 
 the preprocessing procedure is:
 
+  1. Replace the missing components in both colors with a zero value:
+
+     ```css
+     lch(80% 30 0)
+     color(display-p3 0.7 0.5 0)
+     ```
+
+  2. Convert both colors into the interpolation color space:
+
 ## Accessibility considerations
 
 Some people have difficulty distinguishing colors. The [WCAG 2.2](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color) recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See [color and color contrast](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) for more information.

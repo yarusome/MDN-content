@@ -117,7 +117,7 @@ Before the interpolation takes place, any missing component will be replaced wit
 color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
 ```
 
-> **Note:** If a component is missing from both colors, this component will also be missing after the interpolation.
+> **Note:** If a component is missing from both colors, this component will be missing after the interpolation.
 
 #### General case
 
@@ -139,7 +139,7 @@ For example:
 
 Using Oklch as the interpolation color space and the two colors below as an example:
 
-```
+```css
 lch(80% 30 none)
 color(display-p3 0.7 0.5 none)
 ```

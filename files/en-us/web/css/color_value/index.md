@@ -123,6 +123,15 @@ color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
 
 In the general case, missing components are first transferred into the converted colors based the analogy of components. In the following table, components of the same category are **analogous components**.
 
+| Category     | Components |
+| ------------ | ---------- |
+| Reds         | `R`, `X`   |
+| Greens       | `G`, `Y`   |
+| Blues        | `B`, `Z`   |
+| Lightness    | `L`        |
+| Colorfulness | `C`, `S`   |
+| Hue          | `H`        |
+
 For example:
 
 - The `X` component (`0.2`) in `color(xyz 0.2 0.1 0.6)` is analogous to the `R` component (`50%`) in `rgb(50% 70% 30%)`.

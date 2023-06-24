@@ -137,6 +137,15 @@ For example:
 - The `X` component (`0.2`) in `color(xyz 0.2 0.1 0.6)` is analogous to the `R` component (`50%`) in `rgb(50% 70% 30%)`.
 - The `H` component (`0deg`) in `hsl(0deg 100% 80%)` is analogous to the `H` component (`140`) in `oklch(80% 0.1 140)`.
 
+Using Oklch as the interpolation color space and the two colors below as an example:
+
+```css
+lch(80% 30 none)
+color(display-p3 0.7 0.5 none)
+```
+
+the preprocessing procedure is:
+
 ## Accessibility considerations
 
 Some people have difficulty distinguishing colors. The [WCAG 2.2](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color) recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See [color and color contrast](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) for more information.

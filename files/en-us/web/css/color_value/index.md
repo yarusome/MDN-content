@@ -103,6 +103,22 @@ When interpolating `<color>` values, they are first converted to a given color s
 
 Missing components can be used to interpolate only certain components of a color.
 
+#### Simple case
+
+In the simple case, both colors to be interpolated are already in the interpolation color space, e.g.:
+
+```css
+color-mix(in oklch, oklch(none 0.2 10), oklch(60% none 30))
+```
+
+Before the interpolation takes place, any missing component will be replaced with the same component from the other color. Thus the expression above is equivalent to:
+
+```css
+color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
+```
+
+> **Note:** If a component is missing from both colors, this component will be missing after the interpolation.
+
 ## Accessibility considerations
 
 Some people have difficulty distinguishing colors. The [WCAG 2.2](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color) recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See [color and color contrast](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) for more information.

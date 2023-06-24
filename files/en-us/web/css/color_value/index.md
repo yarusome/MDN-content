@@ -134,8 +134,8 @@ In the general case, missing components are first transferred into the converted
 
 For example:
 
-  - The `X` component (`0.2`) in `color(xyz 0.2 0.1 0.6)` is analogous to the `R` component (`50%`) in `rgb(50% 70% 30%)`.
-  - The `H` component (`0deg`) in `hsl(0deg 100% 80%)` is analogous to the `H` component (`140`) in `oklch(80% 0.1 140)`.
+- The `X` component (`0.2`) in `color(xyz 0.2 0.1 0.6)` is analogous to the `R` component (`50%`) in `rgb(50% 70% 30%)`.
+- The `H` component (`0deg`) in `hsl(0deg 100% 80%)` is analogous to the `H` component (`140`) in `oklch(80% 0.1 140)`.
 
 Using Oklch as the interpolation color space and the two colors below as an example:
 

@@ -146,9 +146,9 @@ color(display-p3 0.7 0.5 none)
 
 the preprocessing procedure is:
 
-  1. Replace the missing components in both colors with a zero value:
+1. Replace the missing components in both colors with a zero value:
 
-  2. Convert both colors into the interpolation color space:
+2. Convert both colors into the interpolation color space:
 
 ## Accessibility considerations
 

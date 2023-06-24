@@ -128,43 +128,6 @@ For example:
 - The `X` component (`0.2`) in `color(xyz 0.2 0.1 0.6)` is analogous to the `R` component (`50%`) in `rgb(50% 70% 30%)`.
 - The `H` component (`0deg`) in `hsl(0deg 100% 80%)` is analogous to the `H` component (`140`) in `oklch(80% 0.1 140)`.
 
-Using Oklch as the interpolation color space and the two colors below as an example:
-
-```css
-lch(80% 30 none)
-color(display-p3 0.7 0.5 none)
-```
-
-the preprocessing procedure is:
-
-  1. Replace the missing components in both colors with a zero value:
-
-     ```css
-     lch(80% 30 0)
-     color(display-p3 0.7 0.5 0)
-     ```
-
-  2. Convert both colors into the interpolation color space:
-
-     ```css
-     oklch(83.915% 0.0902 0.28)
-     oklch(63.612% 0.1522 78.748)
-     ```
-
-  3. If any component of the converted colors is analogous to a missing component in the corresponding original color, reset it as a missing component:
-
-     ```css
-     oklch(83.915% 0.0902 none)
-     oklch(63.612% 0.1522 78.748)
-     ```
-
-  4. Replace any missing component with the same component from the other converted color:
-
-     ```css
-     oklch(83.915% 0.0902 78.748)
-     oklch(63.612% 0.1522 78.748)
-     ```
-
 ## Accessibility considerations
 
 Some people have difficulty distinguishing colors. The [WCAG 2.2](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color) recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See [color and color contrast](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) for more information.

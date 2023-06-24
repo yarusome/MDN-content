@@ -148,6 +148,11 @@ the preprocessing procedure is:
 
 1. Replace the missing components in both colors with a zero value:
 
+   ```css
+   lch(80% 30 0)
+   color(display-p3 0.7 0.5 0)
+   ```
+
 2. Convert both colors into the interpolation color space:
 
 ## Accessibility considerations

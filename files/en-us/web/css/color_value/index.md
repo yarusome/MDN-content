@@ -155,6 +155,25 @@ the preprocessing procedure is:
 
 2. Convert both colors into the interpolation color space:
 
+   ```css
+   oklch(83.915% 0.0902 0.28)
+   oklch(63.612% 0.1522 78.748)
+   ```
+
+3. If any component of the converted colors is analogous to a missing component in the corresponding original color, reset it as a missing component:
+
+   ```css
+   oklch(83.915% 0.0902 none)
+   oklch(63.612% 0.1522 78.748)
+   ```
+
+4. Replace any missing component with the same component from the other converted color:
+
+   ```css
+   oklch(83.915% 0.0902 78.748)
+   oklch(63.612% 0.1522 78.748)
+   ```
+
 ## Accessibility considerations
 
 Some people have difficulty distinguishing colors. The [WCAG 2.2](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color) recommendation strongly advises against using color as the only means of conveying a specific message, action, or result. See [color and color contrast](/en-US/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) for more information.
